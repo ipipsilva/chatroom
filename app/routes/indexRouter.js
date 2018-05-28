@@ -1,9 +1,9 @@
-module.exports = function(app){
+module.exports = function(application){
     
-    app.get('/', function(req, res){
+    application.get('/', function(req, res){
         try {
-            console.log(JSON.stringify(app));
-            app.app.controllers.indexController.home(app, req, res);
+            console.log(JSON.stringify(application))
+            application.app.controllers.indexController.home(application, req, res);
         } catch (error) {
             console.log(error);
         }
