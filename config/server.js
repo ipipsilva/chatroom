@@ -1,4 +1,5 @@
 var express = require('express');
+const path = require('path');
 var expressValidator = require('express-validator');
 var bodyParser = require('body-parser');
 var consign = require('consign');
@@ -6,18 +7,18 @@ var app = express();
 
 // Motor de views
 app.set('view engine','ejs');
-app.set('views', './app/views');
+app.set('views', path.join(__dirname, './app/views'));
 
 // definição de pasta pública
-app.use(express.static('./app/public'));
+app.use(express.static(path.join(__dirname, './app/public')));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressValidator());
 
 
-consign({cwd: process.cwd()} + './app')
-    .include('routes')
-    .then('controllers')
+consign({cwd: process.cwd()})
+    .include('/app/routes')
+    .then('/app/controllers')
     .into(app);
 
 module.exports = app;
