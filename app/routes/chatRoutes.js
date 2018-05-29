@@ -5,6 +5,6 @@ module.exports = function(application){
     })
 
     application.post('/chat', function(req, res){
-        application.app.controllers.chatController.iniciarChat(application, req, res);
+        application.controllers.chatController.iniciarChat(application, req, res);
     });
 }
