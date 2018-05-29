@@ -1,9 +1,9 @@
 var app = require('./config/server');
 var consign = require('consign');
 
-consign()
-    .include('/app/routes')
-    .then('/app/controllers')
+consign({cwd: 'app'})
+    .include('routes')
+    .then('controllers')
     .into(app);
 
 var port = process.env.PORT || 3000;
