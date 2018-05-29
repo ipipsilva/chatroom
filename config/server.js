@@ -14,4 +14,8 @@ app.use(express.static(path.join(__dirname, '../app/public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressValidator());
 
+// Rotas utilizadas na aplicação
+var indexRouter = require('../app/routes/indexRouter')(app);
+var chatRouter = require('../app/routes/chatRoutes')(app);
+
 module.exports = app;
