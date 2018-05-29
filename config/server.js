@@ -2,7 +2,6 @@ var express = require('express');
 const path = require('path');
 var expressValidator = require('express-validator');
 var bodyParser = require('body-parser');
-var consign = require('consign');
 var app = express();
 
 // Motor de views
@@ -14,11 +13,5 @@ app.use(express.static(path.join(__dirname, '../app/public')));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressValidator());
-
-
-consign({cwd: './app'})
-    .include('../app/routes')
-    .then('../app/controllers')
-    .into(app);
 
 module.exports = app;
