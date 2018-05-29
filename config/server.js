@@ -15,10 +15,9 @@ app.use(express.static(path.join(__dirname,'./app/public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressValidator());
 
-consign({cwd: './app/'})
-    .include(path.join('routes'))
-    .then(path.join('models'))
-    .then(path.join('controllers'))
+consign()
+    .include(path.join('./app/routes'))
+    .then(path.join('./app/controllers'))
     .into(app);
 
 module.exports = app;
