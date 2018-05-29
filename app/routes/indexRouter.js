@@ -1,5 +1,6 @@
-module.exports = function(app){
-    app.get('/', function(req, res){
-        res.render('index', {erro: {}});                
+module.exports = function(application){
+    
+    application.get('/', function(req, res){
+        application.app.controllers.indexController.home(application, req, res);
     });
 }
