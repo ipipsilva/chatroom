@@ -10,7 +10,7 @@ app.set('view engine','ejs');
 app.set('views', path.join(__dirname, '../app/views'));
 
 // definição de pasta pública
-app.use(express.static(path.join(__dirname,'./app/public')));
+app.use(express.static(path.join(__dirname,'../app/public')));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressValidator());
